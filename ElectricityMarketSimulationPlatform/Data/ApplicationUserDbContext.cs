@@ -10,8 +10,7 @@ namespace ElectricityMarketSimulationPlatform.Data
 {
     public class ApplicationUserDbContext: IdentityDbContext<ApplicationUser>
     {
-        public ApplicationUserDbContext(DbContextOptions<ApplicationUserDbContext> options)
-            : base(options)
+        public ApplicationUserDbContext(DbContextOptions<ApplicationUserDbContext> options) : base(options)
         {
         }
     }

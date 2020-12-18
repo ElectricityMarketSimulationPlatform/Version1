@@ -21,9 +21,11 @@ namespace ElectricityMarketSimulationPlatform
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddRazorPages();
+            services.AddMvc();
 
             var connectionString = _configuration["ConnectionStrings:DefaultConnection"];
+
             services.AddDbContext<ApplicationUserDbContext>(options =>
             {
                 options.UseMySql(connectionString);
@@ -66,6 +68,8 @@ namespace ElectricityMarketSimulationPlatform
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                //与asp.net core 2.x不同，使用razor pages时需要加入此程序
+                endpoints.MapRazorPages();
             });
         }
     }

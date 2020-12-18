@@ -9,7 +9,7 @@
         <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
         <span class="user-info">
             <small>Welcome,</small>
-            Jason
+            @User.Identity.Name
         </span>
 
         <i class="ace-icon fa fa-caret-down"></i>
@@ -19,24 +19,30 @@
         <li>
             <a href="#">
                 <i class="ace-icon fa fa-cog"></i>
-                Settings
+                账户设置
             </a>
         </li>
 
         <li>
             <a href="profile.html">
                 <i class="ace-icon fa fa-user"></i>
-                Profile
+                个人中心
             </a>
         </li>
 
         <li class="divider"></li>
 
         <li>
-            <a href="#">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="btn btn-link no-border">
+                    <i class="ace-icon fa fa-power-off"></i>
+                    退出登录
+                </button>
+            </form>
+            @*<a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                 <i class="ace-icon fa fa-power-off"></i>
-                Logout
-            </a>
+                退出登录
+            </a>*@
         </li>
     </ul>
 </li> 
@@ -55,15 +61,15 @@ else
 
     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
         <li>
-            <a href="#">
-                <i class="ace-icon fa fa-cog"></i>
+            <a asp-area="Identity" asp-page="/Account/Login">
+                <i class="ace-icon fa fa-leaf"></i>
                 登录
             </a>
         </li>
 
         <li>
-            <a href="profile.html">
-                <i class="ace-icon fa fa-user"></i>
+            <a asp-area="Identity" asp-page="/Account/Register">
+                <i class="ace-icon fa fa-home"></i>
                 注册
             </a>
         </li>
