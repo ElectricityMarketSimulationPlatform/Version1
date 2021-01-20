@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElectricityMarketSimulationPlatform.Migrations
 {
     [DbContext(typeof(ApplicationUserDbContext))]
-    [Migration("20201218122410__CreateIdentitySchema")]
-    partial class _CreateIdentitySchema
+    [Migration("20210119115518__Initial")]
+    partial class _Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

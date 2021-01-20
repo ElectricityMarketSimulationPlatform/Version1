@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ElectricityMarketSimulationPlatform.Migrations
 {
-    public partial class _CreateIdentitySchema : Migration
+    public partial class _Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
