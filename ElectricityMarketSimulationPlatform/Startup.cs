@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using System;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace ElectricityMarketSimulationPlatform
 {
@@ -37,8 +39,28 @@ namespace ElectricityMarketSimulationPlatform
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 1;
-            })
-                .AddEntityFrameworkStores<ApplicationUserDbContext>();
+            }).AddEntityFrameworkStores<ApplicationUserDbContext>();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("操作角色权限", polciy => polciy.RequireAssertion(context =>
+                {
+                    if (context.User.IsInRole("系统管理员"))
+                    { return true; }
+                    else
+                    { return false; }
+                }));
+            });
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+                options.LoginPath = "/Identity/Account/Login";
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
+                options.SlidingExpiration = true;
+            });
         }
  
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -63,11 +85,14 @@ namespace ElectricityMarketSimulationPlatform
 
             app.UseAuthentication();
 
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                   );
                 //与asp.net core 2.x不同，使用razor pages时需要加入此程序
                 endpoints.MapRazorPages();
             });

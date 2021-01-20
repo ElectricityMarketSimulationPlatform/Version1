@@ -1,0 +1,30 @@
+﻿@model ElectricityMarketSimulationPlatform.ViewModels.UserRoleViewModel
+<div class="main-content">
+    <div class="page-content">
+        <div class="page-header">
+            <h1>
+                为用户添加角色
+            </h1>
+        </div><!-- /.page-header -->
+
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <form asp-action="AddUserToRole" method="post">
+                            <input type="hidden" name="roleId" value="@Model.RoleId" />
+                            <select class="form-control" asp-for="UserId" asp-items="@(new SelectList(Model.Users, "Id", "UserName"))">
+                                <option> -- 请选择一个用户 -- </option>
+                            </select>
+                            <button class="btn btn-primary" type="submit">添加</button>
+                            <a class="btn btn-secondary" asp-action="EditRole" asp-route-id="@Model.RoleId">返回</a>
+                        </form>
+                        <div class="invalid" asp-validation-summary="ModelOnly">
+                        </div>
+                    </div><!-- /.span -->
+                </div><!-- /.row -->
+            </div>
+        </div>
+    </div>
+</div>
