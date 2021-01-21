@@ -1,3 +1,4 @@
+//åˆ˜ç¥ºæ³¨é‡Š
 using ElectricityMarketSimulationPlatform.Data;
 using ElectricityMarketSimulationPlatform.Models;
 using Microsoft.AspNetCore.Builder;
@@ -43,9 +44,9 @@ namespace ElectricityMarketSimulationPlatform
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("²Ù×÷½ÇÉ«È¨ÏŞ", polciy => polciy.RequireAssertion(context =>
+                options.AddPolicy("æ“ä½œè§’è‰²æƒé™", polciy => polciy.RequireAssertion(context =>
                 {
-                    if (context.User.IsInRole("ÏµÍ³¹ÜÀíÔ±"))
+                    if (context.User.IsInRole("ç³»ç»Ÿç®¡ç†å‘˜"))
                     { return true; }
                     else
                     { return false; }
@@ -93,7 +94,7 @@ namespace ElectricityMarketSimulationPlatform
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                    );
-                //Óëasp.net core 2.x²»Í¬£¬Ê¹ÓÃrazor pagesÊ±ĞèÒª¼ÓÈë´Ë³ÌĞò
+                //ä¸asp.net core 2.xä¸åŒï¼Œä½¿ç”¨razor pagesæ—¶éœ€è¦åŠ å…¥æ­¤ç¨‹åº
                 endpoints.MapRazorPages();
             });
         }
