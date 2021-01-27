@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<ElectricityMarketSimulationPlatform.Models.ApplicationUser> SignInManager
-@inject UserManager<ElectricityMarketSimulationPlatform.Models.ApplicationUser> UserManager
+@inject SignInManager<ElectricityMarketSimulationPlatform.Models.MarketUser> SignInManager
+@inject UserManager<ElectricityMarketSimulationPlatform.Models.MarketUser> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {

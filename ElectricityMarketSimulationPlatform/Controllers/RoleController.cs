@@ -14,10 +14,10 @@ namespace ElectricityMarketSimulationPlatform.Controllers
     [Authorize(Policy = "操作角色权限")]
     public class RoleController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<MarketUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public RoleController(UserManager<ApplicationUser> userManager,
+        public RoleController(UserManager<MarketUser> userManager,
             RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;

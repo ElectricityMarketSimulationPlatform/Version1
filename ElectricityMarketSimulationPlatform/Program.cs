@@ -23,8 +23,8 @@ namespace ElectricityMarketSimulationPlatform
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<ApplicationUserDbContext>();
-                    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+                    var context = services.GetRequiredService<MarketUserDbContext>();
+                    var userManager = services.GetRequiredService<UserManager<MarketUser>>();
                     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                     DatabaseInitializer.Seed(context, userManager, roleManager).Wait();
                 }

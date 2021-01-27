@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using System;
+using ElectricityMarketSimulationPlatform.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace ElectricityMarketSimulationPlatform
@@ -29,7 +30,7 @@ namespace ElectricityMarketSimulationPlatform
 
             var connectionString = _configuration["ConnectionStrings:DefaultConnection"];
 
-            services.AddDbContext<ApplicationUserDbContext>(options =>
+            services.AddDbContext<MarketUserDbContext>(options =>
             {
                 options.UseMySql(connectionString);
             });
@@ -37,13 +38,13 @@ namespace ElectricityMarketSimulationPlatform
             {
                 options.UseMySql(connectionString);
             });
-            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            services.AddIdentity<MarketUser, IdentityRole>(options =>
             {
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 1;
-            }).AddEntityFrameworkStores<ApplicationUserDbContext>();
+            }).AddEntityFrameworkStores<MarketUserDbContext>();
 
             services.AddAuthorization(options =>
             {
@@ -55,6 +56,20 @@ namespace ElectricityMarketSimulationPlatform
                     { return false; }
                 }));
             });
+            services.AddScoped<IMarketUserService, MarketUserEfService>();
+            services.AddScoped<IGenerationCompanyInfoService, GenerationCompanyInfoEfService>();
+            services.AddScoped<IThermalUnitInfoService, ThermalUnitInfoEfService>();
+            services.AddScoped<IRetailCompanyInfoService, RetailCompanyInfoEfService>();
+            services.AddScoped<ILargeUserInfoService, LargeUserInfoEfService>();
+            services.AddScoped<IScatteredUserInfoService, ScatteredUserInfoEfService>();
+            services.AddScoped<IMarketService, MarketEfService>();
+            services.AddScoped<IMarketJoinService, MarketJoinEfService>();
+            services.AddScoped<IMarketResultService, MarketResultEfService>();
+            services.AddScoped<IAgencyService, AgencyEfService>();
+            services.AddScoped<IBuyOrderService, BuyOrderEfService>();
+            services.AddScoped<ISellOrderService, SellOrderEfService>();
+            services.AddScoped<IHistroyOrderService, HistroyOrderEfService>();
+
 
             services.ConfigureApplicationCookie(options =>
             {
