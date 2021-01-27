@@ -20,9 +20,11 @@ namespace ElectricityMarketSimulationPlatform.Models
         [Display(Name = "所属电厂ID")]
         public string GenID { get; set; }
 
+        [Required]
         [Display(Name = "机组编号")]
         public string GenNo  { get; set; }
 
+        
         [Display(Name = "所在节点")]
         public int NodeNo { get; set; }
 
@@ -36,7 +38,7 @@ namespace ElectricityMarketSimulationPlatform.Models
         public double RampUp { get; set; }
 
         [Display(Name = "下爬坡速率")]
-        public string RampDown { get; set; }
+        public double RampDown { get; set; }
 
         [Display(Name = "开机持续时间")]
         public int StartDurTime { get; set; }
@@ -50,9 +52,5 @@ namespace ElectricityMarketSimulationPlatform.Models
         [Display(Name = "关停成本")]
         public double J { get; set; }
 
-        /// <summary>
-        /// 导航属性
-        /// </summary>
-        public GenerationCompanyInfo GenerationCompany { get; set; }
     }
 }

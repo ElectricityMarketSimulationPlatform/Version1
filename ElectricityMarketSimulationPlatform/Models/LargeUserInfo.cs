@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 namespace ElectricityMarketSimulationPlatform.Models
 {
     /// <summary>
-    /// LargeUserInfo表单主要用于存储售电公司信息
+    /// LargeUserInfo表单主要用于存储大用户公司信息
     /// </summary>
     public class LargeUserInfo
     {
+        [Key]
+        [Required]
         [Display(Name = "大用户ID")]
         public string LargeUserID { get; set; }
 
+        [Required]
         [Display(Name = "所属城市")]
         public string City { get; set; }
 
@@ -23,13 +26,20 @@ namespace ElectricityMarketSimulationPlatform.Models
         [Display(Name = "接入电压等级")]
         public int VoltageLevel { get; set; }
 
+        [Required]
         [Display(Name = "行业分类")]
         public string IndustryCategory { get; set; }
 
+        [Required]
         [Display(Name = "用电地址")]
         public string Location { get; set; }
 
-        [Display(Name = "所属供电公司")]
+        [Required]
+        [Display(Name = "所属供电公司")]     
         public string SupplyCompany { get; set; }
+
+        //大用户在一个市场中只能请一个售电公司
+        public RetailCompanyInfo RetailCompany { get; set; }
+        public List<MarketJoin> MarketJoins { get; set; }
     }
 }

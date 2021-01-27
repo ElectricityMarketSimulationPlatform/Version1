@@ -20,6 +20,7 @@ namespace ElectricityMarketSimulationPlatform.Models
         [Display(Name = "卖方订单ID")]
         public int SellOrderID { get; set; }
 
+        [Required]
         [Display(Name = "市场ID")]
         public string MarketID { get; set; }
 
@@ -34,5 +35,8 @@ namespace ElectricityMarketSimulationPlatform.Models
 
         [Display(Name = "交易结果有效性")]
         public bool Valid { get; set; }
+
+        // MarketResult与 Market是一对一关系
+        public Market Markets { get; set; }
     }
 }

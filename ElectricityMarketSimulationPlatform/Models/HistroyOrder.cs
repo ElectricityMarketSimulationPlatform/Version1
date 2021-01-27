@@ -11,12 +11,14 @@ namespace ElectricityMarketSimulationPlatform.Models
     /// </summary>
     public class HistroyOrder
     {
+        [Key]
         [Display(Name = "历史订单ID")]
         public int ID { get; set; }
 
         [Display(Name = "订单ID")]
         public int OrderID { get; set; }
 
+        [Required]
         [Display(Name = "用户ID")]
         public string UserID { get; set; }
 
@@ -35,6 +37,7 @@ namespace ElectricityMarketSimulationPlatform.Models
         // [Display(Name = "订单参数")]
         // public int OtherParaX { get; set; }
 
-
+        public MarketUser MarketUsers { get; set; }
+        public Market Markets { get; set; }
     }
 }

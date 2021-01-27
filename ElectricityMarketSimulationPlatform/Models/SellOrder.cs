@@ -11,6 +11,7 @@ namespace ElectricityMarketSimulationPlatform.Models
     /// </summary>
     public class SellOrder
     {
+        [Key]
         [Display(Name = "买方订单ID")]
         public int BuyOrderID { get; set; }
 
@@ -27,12 +28,16 @@ namespace ElectricityMarketSimulationPlatform.Models
         public double Quantity { get; set; }
 
         [Display(Name = "报价时间")]
-        public double QuoteTime { get; set; }
-
+        public DateTime QuoteTime { get; set; }
+       
+        [Required]
         [Display(Name = "状态")]
-        public DateTime State { get; set; }
+        public bool State { get; set; }
 
         // [Display(Name = "订单参数")]
         // public  OtherParaX { get; set; }
+
+        public Market Markets { get; set; }
+
     }
 }

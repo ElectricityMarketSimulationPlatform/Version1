@@ -33,7 +33,10 @@ namespace ElectricityMarketSimulationPlatform
             {
                 options.UseMySql(connectionString);
             });
-
+            services.AddDbContext<HeavyContext>(options =>
+            {
+                options.UseMySql(connectionString);
+            });
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.Password.RequireNonAlphanumeric = false;

@@ -11,12 +11,15 @@ namespace ElectricityMarketSimulationPlatform.Models
     /// </summary>
     public class GenerationCompanyInfo
     {
+        [Key]
         [Display(Name = "发电企业ID")]
         public string GenID { get; set; }
-        
+
+        [Required]
         [Display(Name = "发电厂简称")]
         public string BriefName { get; set; }
-        
+
+        [Required]
         [Display(Name = "所属城市")]
         public string City { get; set; }
 
@@ -25,11 +28,9 @@ namespace ElectricityMarketSimulationPlatform.Models
 
         [Display(Name = "机组数目")]
         public int GenNum { get; set; }
+        
+        public List<MarketJoin> MarketJoins { get; set; }
 
-        /// <summary>
-        /// 导航属性，
-        /// </summary>
-        public List<ThermalUnitInfo> ThermalUnit { get; set; }
 
     }
 }

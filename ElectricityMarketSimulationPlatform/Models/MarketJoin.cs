@@ -11,16 +11,25 @@ namespace ElectricityMarketSimulationPlatform.Models
     /// </summary>
     public class MarketJoin
     {
+        [Key]
         [Display(Name = "参与关系ID")]
         public int JoinID { get; set; }
 
+        [Required]
         [Display(Name = "用户ID")]
         public string UserID { get; set; }
 
+        [Required]
         [Display(Name = "市场ID")]
         public string MarketID { get; set; }
 
         [Display(Name = "参与时间")]
         public DateTime JoinTime { get; set; }
+
+        // MarketJoin存储多个用户和市场
+        public GenerationCompanyInfo GenerationCompanies { get; set; }
+        public RetailCompanyInfo RetailCompanies { get; set; }
+        public LargeUserInfo LargeUsers { get; set; }
+        public Market Markets { get; set; }
     }
 }
