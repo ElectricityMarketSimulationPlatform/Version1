@@ -28,9 +28,5 @@ namespace ElectricityMarketSimulationPlatform.Models
 
         [Display(Name = "机组数目")]
         public int GenNum { get; set; }
-        
-        public List<MarketJoin> MarketJoins { get; set; }
-
-
     }
 }

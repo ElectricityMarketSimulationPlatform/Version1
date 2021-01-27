@@ -45,10 +45,5 @@ namespace ElectricityMarketSimulationPlatform.Models
 
         // [Display(Name = "目标函数与约束相关参")]
         // public string MatketParaX { get; set; }
-
-        public List<MarketJoin> MarketJoins { get; set; }
-
-        public List<BuyOrder> BuyOrders { get; set; }
-        public List<SellOrder> SellOrders { get; set; }
     }
 }

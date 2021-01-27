@@ -37,9 +37,5 @@ namespace ElectricityMarketSimulationPlatform.Models
         [Required]
         [Display(Name = "所属供电公司")]     
         public string SupplyCompany { get; set; }
-
-        //大用户在一个市场中只能请一个售电公司
-        public RetailCompanyInfo RetailCompany { get; set; }
-        public List<MarketJoin> MarketJoins { get; set; }
     }
 }
