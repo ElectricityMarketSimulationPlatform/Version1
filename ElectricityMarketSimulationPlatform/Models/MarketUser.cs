@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace ElectricityMarketSimulationPlatform.Models
 {
     /// <summary>
     /// MarketUser表单记录的是平台的用户数据，此表单的数据包括所有的用户
     /// </summary>
-    public class MarketUser: ApplicationUser
+    public class MarketUser: IdentityUser
 
     {
         [Required] 
