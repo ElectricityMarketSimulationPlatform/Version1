@@ -9,7 +9,7 @@ using ElectricityMarketSimulationPlatform.Models;
 namespace ElectricityMarketSimulationPlatform.Data
 {
     public class HeavyContext :
-        IdentityDbContext<ApplicationUser>
+        IdentityDbContext<MarketUser>
     {
         public HeavyContext(DbContextOptions<HeavyContext> options) : base(options)
         {

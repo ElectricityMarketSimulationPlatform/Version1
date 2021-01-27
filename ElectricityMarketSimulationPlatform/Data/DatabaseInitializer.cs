@@ -9,8 +9,8 @@ namespace ElectricityMarketSimulationPlatform.Data
 {
     public class DatabaseInitializer
     {
-        public static async Task Seed(ApplicationUserDbContext context, 
-            UserManager<ApplicationUser> userManager, 
+        public static async Task Seed(MarketUserDbContext context, 
+            UserManager<MarketUser> userManager, 
             RoleManager<IdentityRole> roleManager)
         {
             //如果系统中没有任何角色则先创建一些角色
@@ -26,7 +26,7 @@ namespace ElectricityMarketSimulationPlatform.Data
             //创建一个默认系统管理员用户
             if (!context.Users.Any())
             {
-                var user = new ApplicationUser { UserName = "SystemAdmin" };
+                var user = new MarketUser { UserName = "SystemAdmin" };
                 string AdminPassword = "xjtu2021";
                 await userManager.CreateAsync(user, AdminPassword);
                 var createduser =await userManager.FindByNameAsync(user.UserName);

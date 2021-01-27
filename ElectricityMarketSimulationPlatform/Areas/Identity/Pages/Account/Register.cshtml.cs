@@ -15,13 +15,13 @@ namespace ElectricityMarketSimulationPlatform.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<MarketUser> _signInManager;
+        private readonly UserManager<MarketUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
 
         public RegisterModel(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
+            UserManager<MarketUser> userManager,
+            SignInManager<MarketUser> signInManager,
             ILogger<RegisterModel> logger)
         {
             _userManager = userManager;
@@ -67,7 +67,7 @@ namespace ElectricityMarketSimulationPlatform.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser
+                var user = new MarketUser
                 {
                     UserName = Input.UserName,
                     Email=Input.Email
