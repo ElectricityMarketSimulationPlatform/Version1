@@ -37,7 +37,5 @@ namespace ElectricityMarketSimulationPlatform.Models
         // [Display(Name = "订单参数")]
         // public int OtherParaX { get; set; }
 
-        public Market Markets { get; set; }
-
     }
 }

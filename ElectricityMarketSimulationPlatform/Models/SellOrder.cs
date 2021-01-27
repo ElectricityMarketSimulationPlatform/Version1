@@ -33,11 +33,5 @@ namespace ElectricityMarketSimulationPlatform.Models
         [Required]
         [Display(Name = "状态")]
         public bool State { get; set; }
-
-        // [Display(Name = "订单参数")]
-        // public  OtherParaX { get; set; }
-
-        public Market Markets { get; set; }
-
     }
 }

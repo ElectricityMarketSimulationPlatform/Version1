@@ -25,11 +25,5 @@ namespace ElectricityMarketSimulationPlatform.Models
 
         [Display(Name = "参与时间")]
         public DateTime JoinTime { get; set; }
-
-        // MarketJoin存储多个用户和市场
-        public GenerationCompanyInfo GenerationCompanies { get; set; }
-        public RetailCompanyInfo RetailCompanies { get; set; }
-        public LargeUserInfo LargeUsers { get; set; }
-        public Market Markets { get; set; }
     }
 }

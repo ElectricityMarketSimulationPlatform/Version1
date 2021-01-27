@@ -56,7 +56,6 @@ namespace ElectricityMarketSimulationPlatform
                     { return false; }
                 }));
             });
-            services.AddScoped<IMarketUserService, MarketUserEfService>();
             services.AddScoped<IGenerationCompanyInfoService, GenerationCompanyInfoEfService>();
             services.AddScoped<IThermalUnitInfoService, ThermalUnitInfoEfService>();
             services.AddScoped<IRetailCompanyInfoService, RetailCompanyInfoEfService>();

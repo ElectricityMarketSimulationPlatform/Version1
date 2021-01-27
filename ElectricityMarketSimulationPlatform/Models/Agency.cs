@@ -25,10 +25,5 @@ namespace ElectricityMarketSimulationPlatform.Models
 
         [Display(Name = "市场ID")]
         public int MarketID { get; set; }
-
-        // 导航属性
-        public MarketUser MarketUsers { get; set; }
-        public Market Markets { get; set; }
-        public RetailCompanyInfo RetailCompany { get; set; }
     }
 }
