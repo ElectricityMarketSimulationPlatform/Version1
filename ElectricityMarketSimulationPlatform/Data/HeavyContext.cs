@@ -8,8 +8,7 @@ using ElectricityMarketSimulationPlatform.Models;
 
 namespace ElectricityMarketSimulationPlatform.Data
 {
-    public class HeavyContext :
-        IdentityDbContext<MarketUser>
+    public class HeavyContext : DbContext
     {
         public HeavyContext(DbContextOptions<HeavyContext> options) : base(options)
         {
@@ -39,8 +38,6 @@ namespace ElectricityMarketSimulationPlatform.Data
 
         }
 
-
-        public DbSet<MarketUser> MarketUsers { get; set; }
         public DbSet<GenerationCompanyInfo> GenerationCompanyInfos { get; set; }
         public DbSet<ThermalUnitInfo> ThermalUnitInfos { get; set; }
         public DbSet<RetailCompanyInfo> RetailCompanyInfos { get; set; }

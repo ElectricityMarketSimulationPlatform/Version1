@@ -35,8 +35,5 @@ namespace ElectricityMarketSimulationPlatform.Models
 
         [Display(Name = "交易结果有效性")]
         public bool Valid { get; set; }
-
-        // MarketResult与 Market是一对一关系
-        public Market Markets { get; set; }
     }
 }
