@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElectricityMarketSimulationPlatform.Migrations
 {
     [DbContext(typeof(MarketUserDbContext))]
-    [Migration("20210127135026__Initial")]
+    [Migration("20210131030357__Initial")]
     partial class _Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,11 +28,9 @@ namespace ElectricityMarketSimulationPlatform.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ApplyRole")
-                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("CompanyName")
-                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -54,10 +52,6 @@ namespace ElectricityMarketSimulationPlatform.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetime(6)");
-
-                    b.Property<string>("MarketRole")
-                        .IsRequired()
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("NormalizedEmail")
                         .HasColumnType("varchar(256) CHARACTER SET utf8mb4")
