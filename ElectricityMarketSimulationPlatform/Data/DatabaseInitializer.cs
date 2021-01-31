@@ -26,7 +26,7 @@ namespace ElectricityMarketSimulationPlatform.Data
             //创建一个默认系统管理员用户
             if (!context.Users.Any())
             {
-                var user = new MarketUser { UserName = "SystemAdmin" };
+                var user = new MarketUser { UserName = "SystemAdmin"};
                 string AdminPassword = "xjtu2021";
                 await userManager.CreateAsync(user, AdminPassword);
                 var createduser =await userManager.FindByNameAsync(user.UserName);

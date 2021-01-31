@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElectricityMarketSimulationPlatform.Migrations.Heavy
 {
     [DbContext(typeof(HeavyContext))]
-    [Migration("20210127135055__data")]
+    [Migration("20210131030406__data")]
     partial class _data
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
