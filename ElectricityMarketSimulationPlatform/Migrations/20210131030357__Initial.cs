@@ -41,9 +41,8 @@ namespace ElectricityMarketSimulationPlatform.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    CompanyName = table.Column<string>(nullable: false),
-                    ApplyRole = table.Column<string>(nullable: false),
-                    MarketRole = table.Column<string>(nullable: false),
+                    CompanyName = table.Column<string>(nullable: true),
+                    ApplyRole = table.Column<string>(nullable: true),
                     CreditLevel = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
